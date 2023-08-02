@@ -20,7 +20,7 @@ create table Courses
 );
 
 
-create table Enrollment
+create table Enrollments
 (
     EnrollmentID   int,
     StudentID      int,
@@ -31,14 +31,14 @@ create table Enrollment
 
 alter table Students drop PRIMARY key (StudentID);
 alter table Courses drop PRIMARY key (CourseID);
-alter table Enrollment drop PRIMARY key (EnrollmentID);
+alter table Enrollments drop PRIMARY key (EnrollmentID);
 
 alter table Courses add PRIMARY key (StudentID);
 alter table Courses add PRIMARY key (CourseID);
-alter table Enrollment ADD PRIMARY key (EnrollmentID);
+alter table Enrollments ADD PRIMARY key (EnrollmentID);
 
-CREATE INDEX StudentIDX ON Enrollment(StudentID);
-CREATE INDEX CourseIDX ON Enrollment(CourseID);
+CREATE INDEX StudentIDX ON Enrollments(StudentID);
+CREATE INDEX CourseIDX ON Enrollments(CourseID);
 
 insert into Students(StudentID, FirstName, LastName, Birthdate, Gender, GPA) VALUES (1, '가', '가나', '2005-05-15', 'M', 3.75);
 insert into Students(StudentID, FirstName, LastName, Birthdate, Gender, GPA) VALUES (2, '가', '다라', '1999-05-21', 'F', 3.9);
